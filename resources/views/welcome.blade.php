@@ -81,7 +81,7 @@
 
             <div class="content">
 
-                <div class="title m-b-md" style="color: #2c3e50;">
+                <div class="title m-b-md" style="color: #1B1464;">
                     <!-- <a href="http://homestead.local/myview">Haroldview</a>-->
                     Harold
 
