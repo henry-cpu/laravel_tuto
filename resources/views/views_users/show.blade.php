@@ -2,40 +2,30 @@
 
 @section('contents')
     <div class="container">
-        <h2>Benutzer</h2>
-    <!--@if(session()->has('error'))
-        <div class="alert alert-danger">{!! session('error') !!}</div>
-        @endif -->
+        <h2>Konto</h2>
         <table class="table table-dark table-hover">
             <thead>
-            <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
+                <tr>
+                    <th>Informationen</th>
+                    <th></th>
+                </tr>
             </thead>
             <tbody>
-            @foreach($users as $user)
                 <tr>
-                    <td>{!! $user->id !!}</td>
+                    <td>Name</td>
                     <td style="color: #feca57"><strong>{{$user->name}}</strong></td>
-                    <td><a href="{{route('user.show', [$user->id])}}" class="btn btn-light">öffnen</a></td>
-                    <td><a href="{{route('user.edit', [$user->id])}}" class="btn btn-secondary">ändern</a></td>
-                    <td>
-                        <form method="delete" action="{{route('user.delete', [$user->id])}}">
-                            <a type="submit" >löschen</a>
-                        </form>
-                    </td>
                 </tr>
-            @endforeach
+                <tr>
+                    <td>Email</td>
+                    <td style="color: #feca57"><strong>{{$user->email}}</strong></td>
+                </tr>
+                @if($user->admin == true)
+                    <tr>
+                        <td style="color: #feca57"><strong>Administrator</strong></td>
+                    </tr>
+                @endif
             </tbody>
         </table>
-        <a href="{{route('user.create')}}" class="btn btn-warning">Add Benutzer</a>
+        <a href="{{route('user.index')}}" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i> back</a>
     </div>
-    <a href="{{route('user.create')}}" class="btn btn-warning"> Add Benutzer </a>
-    {{$links}}
-
-
 @endsection

@@ -27,9 +27,14 @@ Route::post('contact', 'ContactController@postForm');
 Route::get('photo', 'ImagesController@getForm');
 Route::post('photo', 'ImagesController@postForm');
 
-//route test
+//route test 1, momentan for user
 Route::get('test', function() {
    return view('views_users/test_view');
+});
+
+//route test 2, allgemein
+Route::get('test0', function() {
+    return view('views_users/ttt');
 });
 /*Route::post('photo', function(Request $request){
     //$path = $request -> file ('image') ->store('uploads');

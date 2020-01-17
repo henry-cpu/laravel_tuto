@@ -32,10 +32,9 @@
                 @endforeach
             </tbody>
         </table>
-        <a href="{{route('user.create')}}" class="btn btn-warning">Add Benutzer</a>
+        <a href="{{route('user.create')}}" class="btn btn-warning"><i class='fas fa-user-plus'></i> Add Benutzer</a>
+        {{$links}}
     </div>
-    <a href="{{route('user.create')}}" class="btn btn-warning"> Add Benutzer </a>
-    {{$links}}
 
 
 @endsection

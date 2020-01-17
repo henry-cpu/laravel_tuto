@@ -27,7 +27,7 @@ class UserController extends Controller
         //?????????????????????
         $links = $users->render();
 
-        return view('views_users/index', compact('links'));
+        return view('views_users/index', compact('links'))->with('users', $users);
     }
 
     /**
@@ -51,7 +51,7 @@ class UserController extends Controller
     {
         $user = $this->userRepository->store($request->all());
 
-        return redirect('user')->with('ok', 'Der Benutzer '.$user->name.' wurde hergestellt.');
+        return redirect('user')->with('ok', 'Der Benutzer '.$user->name.' wurde hergestellt.')->with('user',$user);
     }
 
     /**
