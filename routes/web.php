@@ -15,14 +15,22 @@ Route::get('/', 'HomeController@show');
 Route::get('/harold', 'HomeController@test');
 Route::get('/myview', 'HomeController@viewharold');
 
+//basis formular
 Route::get('users', 'UsersController@getInfos');
 Route::post('users', 'UsersController@postInfos');
 
+//contact formular, und email
 Route::get('contact', 'ContactController@getForm');
 Route::post('contact', 'ContactController@postForm');
 
+//storage
 Route::get('photo', 'ImagesController@getForm');
 Route::post('photo', 'ImagesController@postForm');
+
+//route test
+Route::get('test', function() {
+   return view('views_users/test_view');
+});
 /*Route::post('photo', function(Request $request){
     //$path = $request -> file ('image') ->store('uploads');
     //-!d($path -> request);
@@ -30,7 +38,12 @@ Route::post('photo', 'ImagesController@postForm');
 
 });*/
 
+//migration mit email table
+Route::get('email', 'EmailController@getForm');
+Route::post('email', ['uses' =>'EmailController@postForm' , 'as' => 'storeEmail']);
 
+//migration mit user table
+Route::resource('user', 'UserController');
 
 Route::get('artikel/{n}', 'artikelController@showArtikel')->where('n', '[0-9]+');
 Route::get('rechnung/{n}', function($n) {

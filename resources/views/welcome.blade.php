@@ -98,11 +98,12 @@
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
 
-                <p>my experiment</p>
+                <p>my experiment (link)</p>
 
                 <div class="links">
                     <a href="http://homestead.local/contact">Contact us</a>
                     <a href="http://homestead.local/photo">Photo</a>
+                    <a href="http://homestead.local/email">Email(database)</a>
                     <a href="http://homestead.local/users">Users</a>
                 </div>
             </div>
