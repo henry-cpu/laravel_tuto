@@ -46,5 +46,6 @@ class UserRepository
 
     public function destroy($id) {
         $this->getById($id)->delete();
-    }
+        //$this->user->findOrFail($id)->delete()
+;    }
 }

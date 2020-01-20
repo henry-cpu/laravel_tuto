@@ -12,8 +12,9 @@
             <tbody>
             <tr>
                 <td>
-                    <form method="put" action="{{route('user.update', [$user->id])}}" accept-charset="UTF-8" class="was-validated">
+                    <form method="POST" action="{{route('user.update', [$user->id])}}" accept-charset="UTF-8" class="was-validated">
                         {!! csrf_field() !!}
+                        {{method_field('PATCH')}}
                         <div class="form-group">
                             <label for="name">Name:</label>
                             <input type="text" class="form-control" id="name" name="name" required>

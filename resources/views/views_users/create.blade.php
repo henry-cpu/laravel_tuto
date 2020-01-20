@@ -38,6 +38,15 @@
                         </form>
                     </td>
                 </tr>
+                @isset($errors)
+                    @foreach($errors as $error)
+                        <tr>
+                            <td>
+                                {{ $errors }}
+                            </td>
+                        </tr>
+                    @endforeach
+                @endisset
             </tbody>
         </table>
         <a href="{{route('user.index')}}" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i> back</a>

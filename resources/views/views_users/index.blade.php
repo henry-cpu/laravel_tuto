@@ -24,8 +24,13 @@
                         <td><a href="{{route('user.show', [$user->id])}}" class="btn btn-light">öffnen</a></td>
                         <td><a href="{{route('user.edit', [$user->id])}}" class="btn btn-secondary">ändern</a></td>
                         <td>
-                            <form method="delete" action="{{route('user.delete', [$user->id])}}">
-                                <a type="submit" >löschen</a>
+                            <!--<form method="DELETE" action="{{route('user.destroy', [$user->id])}}">
+                                <a type="submit" onclick="return confirm('Are you sure?')" class="btn btn-danger">löschen</a>
+                            </form>-->
+                            <form method="POST" action="{{route('user.destroy', [$user->id])}}">
+                                {{method_field('DELETE')}}
+                                {!! csrf_field() !!}
+                                <input type="submit" class="btn btn-danger" onclick="return confirm('Sind Sie sicher?')" value="löschen">
                             </form>
                         </td>
                     </tr>
@@ -33,7 +38,11 @@
             </tbody>
         </table>
         <a href="{{route('user.create')}}" class="btn btn-warning"><i class='fas fa-user-plus'></i> Add Benutzer</a>
-        {{$links}}
+        <br/><br/>
+
+        {{ $users->links() }}
+        <!--{!! $links !!}-->
+
     </div>
 
 
