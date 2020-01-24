@@ -22,6 +22,7 @@
                 @if($user->admin == true)
                     <tr>
                         <td style="color: #feca57"><strong>Administrator</strong></td>
+                        <td></td>
                     </tr>
                 @endif
             </tbody>

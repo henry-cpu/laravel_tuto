@@ -14,13 +14,22 @@ class UserRepository
         $this->user = $user;
     }
 
+    /**
+     * @param User $user
+     * @param array $inputs
+     */
     private function save(User $user, Array $inputs){
-        $user->name = $inputs['name'];
-        $user->email = $inputs['email'];
-        $user->admin = isset($inputs['admin']);
+        $user->fill($inputs);
 
         $user->save();
 
+    }
+
+    public function setAdmin(User $user, bool $is_admin)
+    {
+        $user->admin = $is_admin;
+
+        $user->save();
     }
 
     public function getPaginate($n) {
@@ -29,7 +38,6 @@ class UserRepository
 
     public function store(Array $inputs) {
         $user = new $this->user;
-        $user -> password = bcrypt($inputs['password']);
 
         $this->save($user, $inputs);
 

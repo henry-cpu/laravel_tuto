@@ -105,6 +105,7 @@
                     <a href="http://homestead.local/photo">Photo</a>
                     <a href="http://homestead.local/email">Email(database)</a>
                     <a href="http://homestead.local/users">Users</a>
+                    <a href="{{route('user.index')}}">User</a>
                 </div>
             </div>
         </div>

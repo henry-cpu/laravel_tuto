@@ -15,7 +15,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     protected $userRepository;
-    protected $nbrPerPage = 4;
+    protected $nbrPerPage = 10;
 
     public function __construct(UserRepository $userRepository){
         $this->userRepository = $userRepository;
@@ -23,11 +23,11 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = $this->userRepository->getPaginate($this->nbrPerPage);
-        //?????????????????????
-        $links = $users->render();
+            $users = $this->userRepository->getPaginate($this->nbrPerPage);
+            //?????????????????????
+            $links = $users->render();
 
-        //return view('views_users/index', compact('users','links'))->with('users', $users);
+            //return view('views_users/index', compact('users','links'))->with('users', $users);
 
 
         return view('views_users/index', compact('users', 'links'))->with('users', $users);
@@ -53,7 +53,7 @@ class UserController extends Controller
     public function store(UserCreateRequest $request)
     {
         $user = $this->userRepository->store($request->all());
-
+        $this->userRepository->setAdmin($user, isset($request['admin']) && (bool) $request['admin']);
         return redirect('user')->with('user',$user)->with('ok', 'Der Benutzer '.$user->name.' wurde hergestellt.');
     }
 
@@ -79,7 +79,6 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = $this->userRepository->getById($id);
-
         return view('views_users/edit', compact('user'));
     }
 
@@ -93,7 +92,6 @@ class UserController extends Controller
     public function update(UserUpdateRequest $request, $id)
     {
         $this->userRepository->update($id, $request->all());
-
         return redirect('user')->withOk('Der benutzer ' .$request->input('name').' wurde modifiziert.' );
     }
 

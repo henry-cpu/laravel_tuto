@@ -29,7 +29,7 @@
                             </div>
                             <div class="form-group form-check">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox"> Administrator
+                                    <input class="form-check-input" type="checkbox" id="admin" name="admin"> Administrator
                                 </label>
                             </div>
 

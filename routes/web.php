@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', 'HomeController@show');
-Route::get('/harold', 'HomeController@test');
-Route::get('/myview', 'HomeController@viewharold');
+Route::get('/', 'H_controller@show');
+Route::get('/harold', 'H_controller@test');
+Route::get('/myview', 'H_controller@viewharold');
 
 //basis formular
 Route::get('users', 'UsersController@getInfos');
@@ -48,7 +48,7 @@ Route::get('email', 'EmailController@getForm');
 Route::post('email', ['uses' =>'EmailController@postForm' , 'as' => 'storeEmail']);
 
 //migration mit user table
-Route::resource('user', 'UserController');
+Route::resource('user', 'UserController')->middleware('auth');
 
 Route::get('artikel/{n}', 'artikelController@showArtikel')->where('n', '[0-9]+');
 Route::get('rechnung/{n}', function($n) {
@@ -66,3 +66,7 @@ Route::get('/{id}', function ($id){
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
