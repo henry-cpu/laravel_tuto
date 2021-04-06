@@ -15,11 +15,12 @@ class ContactController extends Controller
 
     public function postForm(ContactRequest $request) {
 
-
         Mail::send('email_contact', $request->all(), function($nachricht) {
             $nachricht -> to('haroldndefo@gmail.com') -> subject('Contact');
         });
 
-        return view('confirm');
+        return view('confirm', [
+        	'name' => $request->name
+        ]);
     }
 }

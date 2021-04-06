@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="localhost" id="0abbc3bf-b5af-4704-8157-23534fb552d0" keyPath="$USER_HOME$/Homestead/.vagrant/machines/homestead/virtualbox/private_key" port="2222" nameFormat="DESCRIPTIVE" username="vagrant" />
+    </configs>
+  </component>
+</project>

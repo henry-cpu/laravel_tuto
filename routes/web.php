@@ -24,7 +24,7 @@ Route::get('contact', 'ContactController@getForm');
 Route::post('contact', 'ContactController@postForm');
 
 //storage
-Route::get('photo', 'ImagesController@getForm');
+Route::get("photo", 'ImagesController@getForm');
 Route::post('photo', 'ImagesController@postForm');
 
 //route test 1, momentan for user
